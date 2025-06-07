@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Brain, Bot, Zap, Target, Lightbulb, Globe, ChevronLeft, ChevronRight } from "lucide-react";
+import { Brain, Bot, Zap, Target, Lightbulb, Globe, ChevronLeft, ChevronRight, ImageIcon } from "lucide-react";
 import { GlowingCard } from "@/components/ui/glowing-card";
 
 const ProductShowcase3D = () => {
@@ -8,6 +8,22 @@ const ProductShowcase3D = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const products = [
+    {
+      name: "iImage Studio AI",
+      description: "AI-powered image generation studio for unique visuals from text or images.",
+      icon: <ImageIcon className="w-12 h-12 text-teal-400" />,
+      color: "from-teal-400 to-cyan-500",
+      status: "Launched",
+      progress: 100
+    },
+    {
+      name: "Image Studio.ai",
+      description: "Best Image Generation Platform for Creatives with small prompts",
+      icon: <Bot className="w-12 h-12" />,
+      color: "from-red-400 to-yellow-500",
+      status: "Deployed",
+      progress: 100
+    },
     {
       name: "Mindshear.ai",
       description: "AI-driven mental health assessment and cognitive wellness platform",
@@ -24,6 +40,7 @@ const ProductShowcase3D = () => {
       status: "Beta Testing",
       progress: 85
     },
+   
     {
       name: "Helptoboost.ai",
       description: "AI-powered productivity enhancement and workflow optimization",

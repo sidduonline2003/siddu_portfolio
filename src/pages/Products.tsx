@@ -1,9 +1,29 @@
 import Navbar from "@/components/Navbar";
-import { ExternalLink, Github, Calendar, Code, Brain, Bot, Zap, Target, Lightbulb, Globe } from "lucide-react";
+import { ExternalLink, Github, Calendar, Code, Brain, Bot, Zap, Target, Lightbulb, Globe, ImageIcon } from "lucide-react";
 import { GlowingCard } from "@/components/ui/glowing-card";
 
 const Products = () => {
   const products = [
+    {
+      title: "Image Studio AI",
+      category: "AI Image Generation",
+      status: "Launched",
+      description: "AI-powered image generation studio for creating unique visuals, art, and designs from text prompts or existing images.",
+      technologies: ["Python", "Typescript", "FastAPI", "Genkit", "Google Cloud Run", "Langchain","Supabase"],
+      features: [
+        "Text-to-image generation",
+        "Image-to-image transformation",
+        "Style transfer and artistic filters",
+        "High-resolution image upscaling",
+      ],
+      completion: "100%",
+      timeline: "25 June 2024",
+      icon: <ImageIcon className="text-teal-400" size={32} />,
+      color: "red",
+      pricing: "Freemium",
+      liveLink: "https://image-studio-service-1015446685779.asia-south1.run.app/",
+      githubLink: "https://github.com/sidduonline2003/Image-studio-ai"
+    },
     {
       title: "Mindshear.ai",
       category: "AI Assistant",
@@ -122,6 +142,7 @@ const Products = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
+      case "Launched": return "bg-emerald-500/20 text-emerald-400";
       case "Beta Testing": return "bg-green-500/20 text-green-400";
       case "In Development": return "bg-blue-500/20 text-blue-400";
       case "Planning": return "bg-yellow-500/20 text-yellow-400";
@@ -254,14 +275,28 @@ const Products = () => {
                       <span>Launch: {product.timeline}</span>
                     </div>
                     <div className="flex gap-3">
-                      <button className="flex items-center gap-1 hover:text-blue-400 transition-colors">
-                        <Github size={16} />
-                        Code
-                      </button>
-                      <button className="flex items-center gap-1 hover:text-blue-400 transition-colors">
-                        <ExternalLink size={16} />
-                        Preview
-                      </button>
+                      {product.githubLink && (
+                        <a 
+                          href={product.githubLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="flex items-center gap-1 hover:text-blue-400 transition-colors"
+                        >
+                          <Github size={16} />
+                          Code
+                        </a>
+                      )}
+                      {product.liveLink && (
+                        <a 
+                          href={product.liveLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="flex items-center gap-1 hover:text-blue-400 transition-colors"
+                        >
+                          <ExternalLink size={16} />
+                          Preview
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
